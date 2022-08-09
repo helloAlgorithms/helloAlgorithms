@@ -13,7 +13,7 @@ def init_list(list_length : int) -> list: return [ input() for i in range(list_l
 def print_answer_list(answer_list : list) -> None :
     for answer in answer_list: print(answer)
 
-def runtime():
+def runtime(NoneType) -> None :
     input_cnt, query_cnt = map(int, input().split())
     monster_list = init_list(input_cnt)
     query_list = init_list(query_cnt)
