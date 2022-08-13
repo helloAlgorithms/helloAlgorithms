@@ -1,0 +1,8 @@
+import sys
+input = sys.stdin.readline
+N = int(input())
+m = []
+for _ in range(N):
+	m.append(input().strip())
+print(m)
+
