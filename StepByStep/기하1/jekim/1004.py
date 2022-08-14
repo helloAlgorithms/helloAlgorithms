@@ -46,5 +46,3 @@ def runtime() -> None:
         print(solution(coordinate_list, circle_coordinate_list, circle_list_len))
 
 runtime()
-
-# https://www.acmicpc.net/problem/1004, 어린 왕자
