@@ -15,4 +15,3 @@ for i in range(8):
             for p in sorted(realDobi):
                 print(p)
             exit()
-
