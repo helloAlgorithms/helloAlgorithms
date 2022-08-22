@@ -5,7 +5,7 @@ M = [list(input()) for _ in range(N)];
 D = [[-1, 0], [1, 0], [0, -1], [0, 1]]
 ans = 0
 def maxCandy():
-    rowCnt, colCnt, rowMax, colMax = 0, 0,-1e9, -1e9
+    rowCnt, colCnt, rowMax, colMax = 1, 1,-1e9, -1e9
     for i in range(N):
         for j in range(N - 1):
             if M[i][j] == M[i][j + 1]:
