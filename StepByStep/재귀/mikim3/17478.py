@@ -1,4 +1,4 @@
-# 재귀 
+# 재귀  
 def jegi(a,b):
     print(b*'____',end = '')
     print('"재귀함수가 뭔가요?"')
