@@ -11,4 +11,4 @@
 ## 활동 기간
 2022년 1월 14일 ~ mtak이 알고리즘을 접는 날까지
 
-[자세한 내용이 궁금하다면 click me!](https://github.com/mtak0235/helloPython/wiki)
+[자세한 내용이 궁금하다면 click me!](https://github.com/helloAlgorithms/helloAlgorithms/wiki)
