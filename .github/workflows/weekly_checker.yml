@@ -14,4 +14,4 @@ jobs:
           name: helloAlgorithms/helloAlgorithms
           fetch-depth: 0
       - name: check go vacation or not
-        run: bash ${GITHUB_WORKSPACE}/weekly_checker.bash
+        run: bash ${GITHUB_WORKSPACE}/tester/weekly_checker.bash
