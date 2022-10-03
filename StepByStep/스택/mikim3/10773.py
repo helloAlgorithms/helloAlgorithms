@@ -11,4 +11,3 @@ for i in range(k):
         li.pop()
         
 print(sum(li))
-
