@@ -1,7 +1,8 @@
 name: commit counter
+
 on:
   schedule:
-  - cron: '0 2 * * SUN'
+  - cron: '5 * * * SUN'
 
 
 jobs:
