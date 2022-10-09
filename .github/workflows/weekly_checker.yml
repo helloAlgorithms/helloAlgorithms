@@ -3,6 +3,8 @@ name: commit counter
 on:
   schedule:
   - cron: '5 * * * SUN'
+  push:
+    branches: [ master ]
 
 
 jobs:
