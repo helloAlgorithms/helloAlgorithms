@@ -1,0 +1,17 @@
+name: commit counter
+on:
+  schedule:
+  - cron: '* * * * SUN'
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git clone
+        uses: actions/checkout@v3
+        with:
+          name: helloAlgorithms/helloAlgorithms
+          fetch-depth: 0
+      - name: check go vacation or not
+        run: bash ${GITHUB_WORKSPACE}/tester/weekly_checker.bash
