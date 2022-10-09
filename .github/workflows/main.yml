@@ -1,7 +1,7 @@
-name: commit counter
+name: weekly checker
 on:
   schedule:
-  - cron: '* * * * SUN'
+  - cron: '0 2 * * SUN'
 
 
 jobs:
