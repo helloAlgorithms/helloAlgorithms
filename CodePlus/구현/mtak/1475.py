@@ -5,7 +5,7 @@ for i in n:
     if i == '9':
         dic[6] += 1
     else:
-        dic[i] += 1
+        dic[int(i)] += 1
 t = dic[6] / 2
 del dic[6]
 print(max(max(dic.values()), math.ceil(t)))
