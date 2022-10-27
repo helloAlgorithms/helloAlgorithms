@@ -8,6 +8,6 @@ for i in n:
         dic[i] += 1
 t = dic[6] / 2
 del dic[6]
-print(max(max(dic.values()), math.ceil(t/2)))
+print(max(max(dic.values()), math.ceil(t)))
 
 
