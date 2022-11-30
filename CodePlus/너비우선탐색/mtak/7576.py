@@ -1,18 +1,19 @@
 import sys
+from collections import deque
 input = sys.stdin.readline
 m , n = map(int, input().split())
 t = [list(map(int, input().strip().split())) for _ in range(n)]
 cnt = 0
 dx = [0,0,1, -1]
 dy = [1, -1, 0, 0]
-q = []
+q = deque(())
 for y in range(n):
     for x in range(m):
         if t[y][x] == 1:
             q.append((y, x))
 def bfs():
     while q:
-        y, x = q.pop(0)
+        y, x = q.popleft()
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
@@ -25,6 +26,7 @@ bfs()
 for r in t:
     for c in r:
         if c == 0:
+            print(-1)
             exit()
     cnt = max(cnt, max(r))
 print(cnt - 1)
