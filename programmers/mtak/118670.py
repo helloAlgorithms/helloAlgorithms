@@ -1,28 +1,25 @@
-import copy
-def solution(rc, operations):
-    answer = [[0 for c in range(len(rc[0]))] for r in range(len(rc))]
-    def ShiftRow(src, target):
-        for idx in range(len(src)):
-            idx = (idx + 1) % len(src) 
-            for idxx in range(len(src[0])):
-                target[idx][idxx] = src[idx - 1][idxx]
-        return target
-        
-    def Rotate(src, target):
-        target[0] = [src[1][0]] + src[0][:-1]
-        for r in range(2, len(src)):
-            target[r][-1] = src[r - 1] [-1]
-        target[1][-1] = src[0][-1]
-        target[-1] = src[-1][1:] + [src[-2][-1]]
-        for r in range(1, len(src) - 2):
-            target[r][0] = src[r + 1][0]
-        target[-2][0] = src[-1][0]
-        for r in range(1,len(src) - 1):
-            for c in range(1, len(src[0]) - 1):
-                target[r][c] = src[r][c]
-        return target
-        
-    for f in operations:
-        if f == "Rotate": rc = copy.deepcopy(Rotate(rc, answer))
-        else: rc = copy.deepcopy(ShiftRow(rc, answer))
-    return answer
+from collections import deque
+
+def solution(rc,ops):
+    rlen = len(rc)
+    clen = len(rc[0])
+    side_cols = [deque(rc[r][0] for r in range(rlen)), 
+                 deque(rc[r][clen - 1] for r in range(rlen))]
+    mid_rows = deque(deque(row[1:-1]) for row in rc)
+    for op in ops:
+        if op[0] == "S":
+            mid_rows.appendleft(mid_rows.pop())
+            side_cols[0].appendleft(side_cols[0].pop())
+            side_cols[1].appendleft(side_cols[1].pop())
+        else:
+            mid_rows[rlen - 1].append(side_cols[1].pop())
+            side_cols[0].append(mid_rows[rlen - 1].popleft())
+            mid_rows[0].appendleft(side_cols[0].popleft())
+            side_cols[1].appendleft(mid_rows[0].pop())
+    ans = []
+    for r in range(rlen):
+        ans.append([])
+        ans[r].append(side_cols[0][r])
+        ans[r].extend(mid_rows[r])
+        ans[r].append(side_cols[1][r])
+    return ans
