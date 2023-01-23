@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(100000)
 n = int(input())
 cases = [0] * (n + 1)
 cases[1] = 1
