@@ -1,9 +1,10 @@
 def solution(numbers):
-    answer = []
+    answer = [0] * len(numbers)
     for i, p in enumerate(numbers):
-        t = list(filter(lambda x:x > p, numbers[i + 1:]))
-        if len(t) == 0:
-            answer.append(-1)
-            continue
-        answer.append(t.pop(0))
+        t = -1
+        for x in numbers[i + 1:]:
+            if x > p:
+                t = x
+                break
+        answer[i] = t
     return answer
