@@ -1,4 +1,6 @@
 n, m = map(int, input().split())
+import sys
+sys.setrecursionlimit(10**6)
 graph = {}
 visited = [False] * (n + 1)
 cnt = 0
