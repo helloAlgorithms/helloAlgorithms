@@ -1,4 +1,6 @@
 from collections import deque
+import sys
+input = sys.stdin.readline
 n, m = map(int, input().split())
 graph = [[] for _ in range(n + 1)]
 visited = [False] * (n + 1)
@@ -9,9 +11,9 @@ for _ in range(m):
 	graph[t].append(f)
 def bfs(v):
     queue = deque([v])
+    visited[v] = True
     while queue:
         node = queue.popleft()
-        visited[node] = True
         for i in graph[node]:
             if not visited[i]:
                 visited[i] = True
