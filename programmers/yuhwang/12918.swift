@@ -1,3 +1,6 @@
 func solution(_ s:String) -> Bool {
-    return Int(s) != nil
+    for c in s {
+        if !c.isNumber { return false }
+    }
+    return true
 }
