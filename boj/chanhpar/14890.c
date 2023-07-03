@@ -42,6 +42,7 @@ checkRow(const int i) {
     if (step == 1) {
       if (size < l || aux[j - l] != 0)
         return;
+      size = 0;
       push(board[i][j]);
 
     } else if (step == -1) {
@@ -112,9 +113,8 @@ main(void) {
   int i, j;
   scanf("%d %d", &n, &l);
   for (i = 0; i < n; ++i) {
-    for (j = 0; j < n; ++j) {
+    for (j = 0; j < n; ++j)
       scanf("%d", &board[i][j]);
-    }
     checkRow(i);
   }
   for (j = 0; j < n; ++j)
