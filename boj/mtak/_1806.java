@@ -15,13 +15,28 @@ public class _1806 {
         for (int i = 1; i <= n; i++) {
             sumArr[i] = sumArr[i - 1] + Integer.parseInt(stringTokenizer.nextToken());
         }
-        int ret = 0;
-        out : while (ret <= n - 1) {
-            ret += 1;
-            for (int i = 1; i + ret <= n; i++) {
-                if (sumArr[i + ret] - sumArr[i - 1] >= s)break out;
+//        out : while (ret <= n - 1) {
+//            ret += 1;
+//            for (int i = 1; i + ret <= n; i++) {
+//                if (sumArr[i + ret] - sumArr[i - 1] >= s)break out;
+//            }
+//        }
+        int start_idx = 1;
+        int end_idx = 1;
+        int min_len = Integer.MAX_VALUE;
+        while (end_idx <= n) {
+            int sum = sumArr[end_idx] - sumArr[start_idx - 1];
+            if (sum >= s) {
+                if (min_len > end_idx - start_idx + 1) min_len = end_idx - start_idx + 1;
+                start_idx++;
+            } else {
+                end_idx++;
             }
         }
-        System.out.println(ret + 1);
+        if (min_len == Integer.MAX_VALUE) {
+            System.out.println(0);
+        } else {
+            System.out.println(min_len);
+        }
     }
 }
