@@ -9,12 +9,11 @@ public class _11660 {
         StringTokenizer stringTokenizer = new StringTokenizer(bufferedReader.readLine());
         int n = Integer.parseInt(stringTokenizer.nextToken());
         int m = Integer.parseInt(stringTokenizer.nextToken());
-        int[] sumArr = new int[n * n + 1];
-        sumArr[0] = 0;
-        for (int i = 1; i < n+1 ; i++) {
+        int[][] sumArr = new int[n + 1][n + 1];
+        for (int r = 1; r <= n; r++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-            for (int j = 1; j < n + 1; j++) {
-                sumArr[(i - 1) * n + j] = sumArr[(i - 1) * n + j - 1] + Integer.parseInt(stringTokenizer.nextToken());
+            for (int c = 1; c <= n; c++) {
+                sumArr[r][c] = sumArr[r][c - 1] + sumArr[r - 1][c] - sumArr[r - 1][c - 1] + Integer.parseInt(stringTokenizer.nextToken());
             }
         }
         for (int i = 0; i < m; i++) {
@@ -24,9 +23,7 @@ public class _11660 {
             int fy = Integer.parseInt(stringTokenizer.nextToken());
             int tx = Integer.parseInt(stringTokenizer.nextToken());
             int ty = Integer.parseInt(stringTokenizer.nextToken());
-            for (int r = fx; r <= tx; r++) {
-                ret += sumArr[(r - 1) * n + ty] - sumArr[(r - 1) * n + fy - 1];
-            }
+            ret = sumArr[tx][ty] - sumArr[fx - 1][ty] - sumArr[tx][fy - 1] + sumArr[fx - 1][fy - 1];
             System.out.println(ret);
         }
     }
