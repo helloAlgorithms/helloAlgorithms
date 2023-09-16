@@ -27,8 +27,8 @@ public class _15961 {
             check[plates[i]]++;
         }
         int cand = result;
-        for (int j = k; j < n; j++) {
-            int i = j - k;
+        for (int i = 0; i < n; i++) {
+            int j = (i + k) % n;
             check[plates[j]]++;
             if (check[plates[j]] == 1) cand++;
             if (check[plates[i]] == 1) cand--;
